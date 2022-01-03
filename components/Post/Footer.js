@@ -1,7 +1,10 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native'
+import React ,{useState}from 'react'
+import { Button, ScrollView, StyleSheet, Text, View ,TouchableHighlight,TouchableOpacity} from "react-native";
+import { Provider } from "react-native-paper";
+import BottomSheet from "./bottom-sheet/BottomSheet";
 
 const Footer = ({ likes_count, comments_count, comments }) => {
+	const [show, setShow] = useState(false);
 	return (
 		<>
 			<View style={styles.footerRow}>
@@ -20,6 +23,7 @@ const Footer = ({ likes_count, comments_count, comments }) => {
 						</View>
 					</TouchableHighlight>
 				</View>
+
 				<View style={styles.btn}>
 					<TouchableHighlight style={styles.quantityButton} style={styles.newButtonStyle2} >
 						<View style={styles.buttonStyle} >
@@ -27,14 +31,28 @@ const Footer = ({ likes_count, comments_count, comments }) => {
 						</View>
 					</TouchableHighlight>
 				</View>
-				<View style={styles.btn}>
-					<TouchableHighlight style={styles.quantityButton} style={styles.newButtonStyle3} >
-						<View style={styles.buttonStyle} >
-							<Text style={{ marginRight: 2, fontWeight: 'bold', color: 'black', }}> Load Comment</Text>
-						</View>
-					</TouchableHighlight>
-				</View>
+
+				
 			</View>
+			<Provider>
+      <View style={styles.container1}>
+        <Button onPress={() => setShow(true)} title="Load The Comments  💬" />
+        <BottomSheet
+          show={show}
+          onDismiss={() => {
+            setShow(false);
+          }}
+          enableBackdropDismiss
+        >
+          <ScrollView contentContainerStyle={{ padding: 16 }}>
+            {Array.from({ length: 20}).map((_, index) => (
+              <Text key={index}>Comment - {index + 1}</Text>
+            ))}
+          </ScrollView>
+        </BottomSheet>
+      </View>
+    </Provider>
+			
 		</>
 	)
 }
@@ -42,6 +60,12 @@ const Footer = ({ likes_count, comments_count, comments }) => {
 export default Footer
 
 const styles = StyleSheet.create({
+	container1: {
+		flex: 1,
+		backgroundColor: "#ccc",
+		alignItems: "center",
+		justifyContent: "center",
+	  },
 	footerRow: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
