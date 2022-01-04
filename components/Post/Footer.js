@@ -2,8 +2,9 @@ import React ,{useState}from 'react'
 import { Button, ScrollView, StyleSheet, Text, View ,TouchableHighlight,TouchableOpacity} from "react-native";
 import { Provider } from "react-native-paper";
 import BottomSheet from "./bottom-sheet/BottomSheet";
+import Comment from './Comment';
 
-const Footer = ({ likes_count, comments_count, comments }) => {
+const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 	const [show, setShow] = useState(false);
 	return (
 		<>
@@ -45,9 +46,10 @@ const Footer = ({ likes_count, comments_count, comments }) => {
           enableBackdropDismiss
         >
           <ScrollView contentContainerStyle={{ padding: 16 }}>
-            {Array.from({ length: 20}).map((_, index) => (
-              <Text key={index}>Comment - {index + 1}</Text>
+		  {Array.from({ length: 3 }).map((_, index) => (
+              <Comment user_name={comments.user_name} key={index} />
             ))}
+            <Comment/>
           </ScrollView>
         </BottomSheet>
       </View>
