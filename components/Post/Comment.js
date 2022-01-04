@@ -2,8 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 function Comment({ comment,user_name,replies }) {
-    const NestedComments = (comment.replies || []).map((comment,index )=> {
-      return <Comment key={index} comment={comment.replies} type="child" />
+    const NestedComments = (comment.children || []).map((comment,index )=> {
+      return <Comment key={index} comment={comment} type="child" />
     })
   
     return (
