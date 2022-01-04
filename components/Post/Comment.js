@@ -1,17 +1,42 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const Comment = ({user_name}) => {
+const Comment = ({user_name,comment,replies}) => {
+
+
+    const firstChild = () =>{
+        if(replies.length > 0){
+          return (
+                    replies.map((reply,index) => {
+                        return (
+                                <View style={styles.container}  key={index}> 
+                                    <Text style={styles.containerTxt}>{reply.user_name}</Text>   
+                                    <View>
+                                        <Text>{reply.comment}</Text>
+                                    </View>
+                                    <View style={styles.options}>
+                                        <Text style={styles.optionText}>Like</Text>
+                                        <Text style={styles.optionText}>Reply</Text>
+                                    </View>
+                                </View>
+                                )
+                    })
+          )
+        }
+    
+        return null;
+    }
     return (
         <View style={styles.container}> 
             <Text style={styles.containerTxt}>{user_name}</Text>   
             <View>
-                <Text>content</Text>
+                <Text>{comment}</Text>
             </View>
             <View style={styles.options}>
                 <Text style={styles.optionText}>Like</Text>
                 <Text style={styles.optionText}>Reply</Text>
             </View>
+            {firstChild()}
         </View>
     )
 }

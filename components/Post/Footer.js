@@ -36,23 +36,26 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 				
 			</View>
 			<Provider>
-      <View style={styles.container1}>
-        <Button onPress={() => setShow(true)} title="Load The Comments  💬" />
-        <BottomSheet
-          show={show}
-          onDismiss={() => {
-            setShow(false);
-          }}
-          enableBackdropDismiss
-        >
-          <ScrollView contentContainerStyle={{ padding: 16 }}>
-		  {Array.from({ length: 3 }).map((_, index) => (
-              <Comment user_name={comments.user_name} key={index} />
-            ))}
-            <Comment/>
-          </ScrollView>
-        </BottomSheet>
-      </View>
+					<View style={styles.container1}>
+						<Button onPress={() => setShow(true)} title="Load The Comments  💬" />
+						<BottomSheet
+						show={show}
+						onDismiss={() => {
+							setShow(false);
+						}}
+						enableBackdropDismiss
+						>
+						<ScrollView contentContainerStyle={{ padding: 16 }}>
+						{/* {Array.from({ length: 3 }).map((_, index) => (
+							<Comment user_name={comments.user_name} key={index} />
+							))} */}
+
+							{comments.map((item, index) => (
+								<Comment user_name={item.user_name} replies={item.replies} comment={item.comment} key={index} />
+							))}
+						</ScrollView>
+						</BottomSheet>
+					</View>
     </Provider>
 			
 		</>
