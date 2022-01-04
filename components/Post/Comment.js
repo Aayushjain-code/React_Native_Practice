@@ -1,32 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const Comment = ({user_name,comment,replies}) => {
-
-
-    const firstChild = () =>{
-        if(replies.length > 0){
-          return (
-                    replies.map((reply,index) => {
-                        return (
-                                <View style={styles.container}  key={index}> 
-                                    <Text style={styles.containerTxt}>{reply.user_name}</Text>   
-                                    <View>
-                                        <Text>{reply.comment}</Text>
-                                    </View>
-                                    <View style={styles.options}>
-                                        <Text style={styles.optionText}>Like</Text>
-                                        <Text style={styles.optionText}>Reply</Text>
-                                    </View>
-                                </View>
-                                )
-                    })
-          )
-        }
-    
-        return null;
-    }
+function Comment({ comment,user_name,replies }) {
+    const NestedComments = (comment.replies || []).map((comment,index )=> {
+      return <Comment key={index} comment={comment.replies} type="child" />
+    })
+  
     return (
+    //   <View >
+    //     <View><Text>{comment}</Text></View>
+    //     {NestedComments}
+    //   </View>
+
+
         <View style={styles.container}> 
             <Text style={styles.containerTxt}>{user_name}</Text>   
             <View>
@@ -36,10 +22,51 @@ const Comment = ({user_name,comment,replies}) => {
                 <Text style={styles.optionText}>Like</Text>
                 <Text style={styles.optionText}>Reply</Text>
             </View>
-            {firstChild()}
+            {NestedComments}
         </View>
     )
-}
+  }
+
+
+// const Comment = ({user_name,comment,replies}) => {
+
+//     const firstChild = () =>{
+//         if(replies.length > 0){
+//           return (
+//                     replies.map((reply,index) => {
+//                         return (
+//                                 <View style={styles.container}  key={index}> 
+//                                     <Text style={styles.containerTxt}>{reply.user_name}</Text>   
+//                                     <View>
+//                                         <Text>{reply.comment}</Text>
+//                                     </View>
+//                                     <View style={styles.options}>
+//                                         <Text style={styles.optionText}>Like</Text>
+//                                         <Text style={styles.optionText}>Reply</Text>
+//                                     </View>
+//                                 </View>
+//                                 )
+//                     })
+//           )
+//         }
+    
+//         return null;
+//     }
+//     return (
+//         <View style={styles.container}> 
+//             <Text style={styles.containerTxt}>{user_name}</Text>   
+//             <View>
+//                 <Text>{comment}</Text>
+//             </View>
+//             <View style={styles.options}>
+//                 <Text style={styles.optionText}>Like</Text>
+//                 <Text style={styles.optionText}>Reply</Text>
+//             </View>
+//             {firstChild()}
+//         </View>
+//     )
+// }
+
 
 export default Comment
 
