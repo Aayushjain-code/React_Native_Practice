@@ -14,23 +14,23 @@ const data = [
 		"comments_count": 10,
 		"comments": [
 			{
-				"user_name": "Aishwary",
-				"comment": "Hello world",
+				"user_name": "Aayush",
+				"comment": "Hello world-1",
 				"replies": [
 					{
-						"user_name": "Aishwary",
-						"comment": "Hello world",
+						"user_name": "Naisheel",
+						"comment": "Hello world-2",
 						"replies": [
 							{
-								"user_name": "Aishwary",
-								"comment": "Hello world",
+								"user_name": "Manish",
+								"comment": "Hello world-3",
 								"replies": null
 							}
 						]
 					},
 					{
-						"user_name": "Aishwary",
-						"comment": "Hello world",
+						"user_name": "Priyanshu",
+						"comment": "Hello world-4",
 						"replies": []
 					}
 				]

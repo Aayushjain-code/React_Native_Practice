@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
 		textAlign: 'center'
 	},
 	container: {
+		backgroundColor:'yellow',
 		marginTop: 8,
 		marginBottom: 6,
 		paddingBottom: 10,
 		padding: 2,
-		height: 200,
 		borderWidth: 1,
 		borderRadius: 10,
 		alignItems: 'center',

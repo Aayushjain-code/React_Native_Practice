@@ -36,7 +36,7 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 				
 				
 			</View>
-			<View style={styles.container}>
+			<View style={styles.container2}>
 						{comments.map((item, index) => {
 						return (
 							<View key={index}>
@@ -79,6 +79,13 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		paddingLeft: 10,
 	},
+	container2: {
+		marginBottom: 10,
+		
+		borderWidth: 1,
+		borderRadius: 10,
+		paddingRight: 10,
+	},
 	quantityButton: {
 		paddingLeft: 10,
 		height: 40,
@@ -108,3 +115,35 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	}
 })
+
+
+
+
+
+
+
+
+
+
+            // <Provider>
+            //         <View style={styles.container1}>
+            //             <Button onPress={() => setShow(true)} title="Load The Comments  💬" />
+            //             <BottomSheet
+            //             show={show}
+            //             onDismiss={() => {
+            //                 setShow(false);
+            //             }}
+            //             enableBackdropDismiss
+            //             >
+            //             <ScrollView contentContainerStyle={{ padding: 16 }}>
+            //             {/* {Array.from({ length: 3 }).map((_, index) => (
+            //                 <Comment user_name={comments.user_name} key={index} />
+            //                 ))} */}
+
+            //                 {comments.map((item, index) => (
+            //                     <Comment comment={item} key={index} />
+            //                 ))}
+            //             </ScrollView>
+            //             </BottomSheet>
+            //         </View>
+            // </Provider>
