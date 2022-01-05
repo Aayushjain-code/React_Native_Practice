@@ -1,6 +1,7 @@
 import React ,{useState}from 'react'
 import { Button, ScrollView, StyleSheet, Text, View ,TouchableHighlight,TouchableOpacity} from "react-native";
 import { Provider } from "react-native-paper";
+// import Comment from '../comments';
 import BottomSheet from "./bottom-sheet/BottomSheet";
 import Comment from './Comment';
 
@@ -32,31 +33,24 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 						</View>
 					</TouchableHighlight>
 				</View>
-
+				
 				
 			</View>
-			<Provider>
-					<View style={styles.container1}>
-						<Button onPress={() => setShow(true)} title="Load The Comments  💬" />
-						<BottomSheet
-						show={show}
-						onDismiss={() => {
-							setShow(false);
-						}}
-						enableBackdropDismiss
-						>
-						<ScrollView contentContainerStyle={{ padding: 16 }}>
-						{/* {Array.from({ length: 3 }).map((_, index) => (
-							<Comment user_name={comments.user_name} key={index} />
-							))} */}
+			<View style={styles.container}>
+						{comments.map((item, index) => {
+						return (
+							<View key={index}>
+								<Comment comment={item}  />	
+							</View>
+						      )
+						})}
+				</View>
+			
 
-							{comments.map((item, index) => (
-								<Comment user_name={item.user_name} replies={item.replies} comment={item.comment} key={index} />
-							))}
-						</ScrollView>
-						</BottomSheet>
-					</View>
-    </Provider>
+           {/* 			
+			{Comment(comments)} */}
+			{/* <Comment comment={comments}/> */}
+			
 			
 		</>
 	)
@@ -83,6 +77,7 @@ const styles = StyleSheet.create({
 		marginTop: 8,
 		borderWidth: 1,
 		borderRadius: 10,
+		paddingLeft: 10,
 	},
 	quantityButton: {
 		paddingLeft: 10,

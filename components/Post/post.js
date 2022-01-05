@@ -9,7 +9,7 @@ const Post = ({ profile_photo, user_name, title, description, likes_count, comme
 		<View style={styles.container} >
 			<Header user_name={user_name} profile_photo={profile_photo} />
 			<Body title={title} description={description} />
-			<Footer comments={comments} likes_count={likes_count} comments_count={comments_count} comments={comments} />
+			<Footer comments={comments} likes_count={likes_count} comments_count={comments_count}  />
 		</View>
 	)
 }
