@@ -1,6 +1,82 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+
+function Comment({ comment }) {
+    const nestedComments = (comment.replies || []).map((comment,index) => {
+      return <Comment key={index} comment={comment} />
+    })
+   //alert(JSON.stringify(comment))
+  
+    return (
+      <View style={styles.box1}>
+        <View style={styles.oneBox}>
+            <Text style={styles.commenter}> 
+                {comment.user_name} : 
+            </Text>
+            <Text>
+                 {comment.comment}
+            </Text>
+            <View>
+               <Text> U</Text>
+            </View>
+        </View>
+
+        {nestedComments}
+      </View>
+    )
+  }
+
+export default Comment
+
+
+
+const styles = StyleSheet.create({
+    oneBox:{
+        flexDirection:'row',
+        marginTop:10,
+        backgroundColor:'#808080',
+        padding:10,
+        borderRadius:5,
+    },
+    commenter:{
+        fontWeight:'bold',
+    },
+    box1:{
+        marginLeft:30,
+        marginTop:10,
+    },
+    containerTxt: {
+        fontWeight: 'bold',
+    },
+    optionText:{
+        fontWeight: 'bold',
+        marginRight: 10,
+    },
+    options: {
+        flexDirection: 'row',
+        justifyContent:'flex-end',
+        color:'black',
+    },
+    container:{
+        backgroundColor:'#808080',
+        padding:10,
+        borderRadius:5,
+        color:'white',
+        marginBottom:10,
+    },
+})
+
+
+
+
+
+
+
+
+
+
+
 // function Comment({ comment,user_name,replies }) {
 //     const NestedComments = (comment.children || []).map((comment,index )=> {
 //       return <Comment key={index} comment={replies.comment} type="child" />
@@ -29,26 +105,8 @@ import { StyleSheet, Text, View } from 'react-native'
 
 
 
-function Comment({ comment }) {
-    const nestedComments = (comment.replies || []).map((comment,index) => {
-      return <Comment key={index} comment={comment} />
-    })
-   //alert(JSON.stringify(comment))
-  
-    return (
-      <View style={styles.box1}>
-        <View >
-            <Text style={styles.commenter}> 
-                {comment.user_name}
-            </Text>
-            <Text>
-                {comment.comment}
-            </Text>
-        </View>
-        {nestedComments}
-      </View>
-    )
-  }
+
+
 
 // const Comment = ({user_name,comment,replies}) => {
 
@@ -88,38 +146,3 @@ function Comment({ comment }) {
 //         </View>
 //     )
 // }
-
-
-export default Comment
-
-const styles = StyleSheet.create({
-    commenter:{
-        fontWeight:'bold',
-    },
-    box1:{
-        backgroundColor:'#808080',
-        padding:10,
-        borderRadius:5,
-        marginLeft:25,
-        marginTop:10,
-    },
-    containerTxt: {
-        fontWeight: 'bold',
-    },
-    optionText:{
-        fontWeight: 'bold',
-        marginRight: 10,
-    },
-    options: {
-        flexDirection: 'row',
-        justifyContent:'flex-end',
-        color:'black',
-    },
-    container:{
-        backgroundColor:'#808080',
-        padding:10,
-        borderRadius:5,
-        color:'white',
-        marginBottom:10,
-    },
-})
