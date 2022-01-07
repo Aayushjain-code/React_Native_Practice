@@ -54,6 +54,7 @@ const Screen1 = () => {
 		<SafeAreaView>
 
 			<View>
+				<Text style={styles.myText}>Mybook</Text>
 				<FlatList
 					data={data}
 					keyExtractor={(item, index) => 'key' + index}
@@ -78,8 +79,9 @@ export default Screen1
 
 const styles = StyleSheet.create({
 	myText: {
+		paddingTop: 10,
 		fontSize: 30,
-		color: 'tomato',
-		textAlign: 'center'
+		color: 'blue',
+		textAlign: 'center',
 	}
 })
