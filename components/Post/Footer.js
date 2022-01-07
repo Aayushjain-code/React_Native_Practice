@@ -7,8 +7,9 @@ import Comment from './Comment';
 import CommentBox from './CommentBox';
 
 const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
-	const [show, setShow] = useState(false);
-	return (
+
+	const [shouldShow, setShouldShow] = useState(true);
+		return (
 		<>
 			<View style={styles.footerRow}>
 				<View style={{ backgroundColor: 'white', padding: 2, borderRadius: 4, width: "24%", borderWidth: 1,alignItems:'center' }}>
@@ -30,9 +31,8 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 				<View style={styles.btn}>
 					<TouchableHighlight 
 					style={styles.newButtonStyle2} 
-					onPress={()=>{
-						setShow(true)
-					}} >
+					onPress={() => setShouldShow(!shouldShow)}
+					>
 						<View style={styles.buttonStyle} >
 							<Text style={{ marginRight: 2, fontWeight: 'bold', color: 'white', }}> Comment  💬 </Text>
 						</View>
@@ -41,7 +41,10 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 				
 				
 			</View>
-			<CommentBox comments={comments}/>
+			{
+				shouldShow ?( <CommentBox comments={comments}/>) : null
+			}
+			
 			{/* <View style={styles.container2}>
 						{comments.map((item, index) => {
 						return (
