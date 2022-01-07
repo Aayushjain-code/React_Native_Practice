@@ -18,9 +18,6 @@ function Comment({ comment }) {
             <Text>
                  {comment.comment}
             </Text>
-            <View>
-               <Text> U</Text>
-            </View>
         </View>
 
         {nestedComments}

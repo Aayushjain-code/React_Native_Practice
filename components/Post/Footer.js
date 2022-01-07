@@ -4,6 +4,7 @@ import { Provider } from "react-native-paper";
 // import Comment from '../comments';
 import BottomSheet from "./bottom-sheet/BottomSheet";
 import Comment from './Comment';
+import CommentBox from './CommentBox';
 
 const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 	const [show, setShow] = useState(false);
@@ -40,7 +41,8 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 				
 				
 			</View>
-			<View style={styles.container2}>
+			<CommentBox comments={comments}/>
+			{/* <View style={styles.container2}>
 						{comments.map((item, index) => {
 						return (
 							<View key={index}>
@@ -48,7 +50,7 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 							</View>
 						      )
 						})}
-			</View>
+			</View> */}
 			
 
            {/* 			
@@ -78,8 +80,8 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		flexDirection: 'row',
-		marginTop: 4,
-		marginBottom: 10,
+		marginTop: 2,
+		marginBottom: 4,
 	},
 	container2: {
 		paddingBottom: 10,
