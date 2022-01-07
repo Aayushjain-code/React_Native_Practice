@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
 	container: {
 		width: 65,
 		height: 65,
-		margin: 5,
+		margin: 8,
 		borderRadius: 40,
-		borderWidth: 5,
+		borderWidth: 3,
 		borderColor: 'purple',
 	},
 	image: {

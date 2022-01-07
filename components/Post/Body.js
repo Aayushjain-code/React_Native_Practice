@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 		paddingBottom: 10,
 		padding: 2,
 		borderWidth: 1,
-		borderRadius: 10,
+		borderRadius: 5,
 		alignItems: 'center',
 	},
 	image: {

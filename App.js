@@ -27,7 +27,8 @@ const App = () => {
           <Tab.Screen name="Home" component={Screen1}
           
             options={
-              {
+              
+              {headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
                   return <Text style={{ fontSize: size, color: color }}>🏠</Text>
                 }
@@ -36,7 +37,7 @@ const App = () => {
           />
           <Tab.Screen name="Settings" component={Screen2}
             options={
-              {
+              {headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
                   return <Text style={{ fontSize: size, color: "purple" }}>⚙️</Text>
                 }

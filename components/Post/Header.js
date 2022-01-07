@@ -12,10 +12,10 @@ const Header = ({ user_name, profile_photo }) => {
 				<Text style={styles.myText}>
 					{user_name}
 				</Text>
-				{/* date */}
+
 			</View>
 			<View style={styles.dots}>
-				<Text>⚫⚫⚫</Text>
+				<Text style={{color:"black",fontSize:10,letterSpacing:2}}>⚫⚫⚫</Text>
 			</View>
 		</View>
 	)
@@ -25,15 +25,16 @@ export default Header
 
 const styles = StyleSheet.create({
 	dots: {
-		marginTop: 25,
-		marginRight: 10,
+		justifyContent:"center",
+		alignItems:"center",
+		marginRight:15,
 		color: 'black',
 	},
 	hedder: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		borderWidth: 1,
-		borderRadius: 10,
+		borderRadius: 5,
 	},
 	container: {
 		flexDirection: 'row',
