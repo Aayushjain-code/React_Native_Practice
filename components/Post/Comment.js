@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 
 
 function Comment({ comment }) {
+    
     const nestedComments = (comment.replies || []).map((comment,index) => {
       return <Comment key={index} comment={comment} />
     })
@@ -66,6 +67,24 @@ const styles = StyleSheet.create({
         marginBottom:10,
     },
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

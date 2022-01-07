@@ -25,6 +25,7 @@ const App = () => {
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen name="Home" component={Screen1}
+          
             options={
               {
                 tabBarIcon: ({ focused, color, size }) => {

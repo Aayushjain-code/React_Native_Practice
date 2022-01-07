@@ -10,10 +10,10 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 	return (
 		<>
 			<View style={styles.footerRow}>
-				<View style={{ backgroundColor: 'white', padding: 2, borderRadius: 4, width: "48%", borderWidth: 1 }}>
-					<Text> ❤️ 😍 😀 🤣 🙌 {likes_count}</Text>
+				<View style={{ backgroundColor: 'white', padding: 2, borderRadius: 4, width: "24%", borderWidth: 1,alignItems:'center' }}>
+					<Text> ❤️ 😍  {likes_count}</Text>
 				</View>
-				<View style={{ backgroundColor: 'white', padding: 2, borderRadius: 4, width: "38%", borderWidth: 1 }}>
+				<View style={{ backgroundColor: 'white', padding: 2, borderRadius: 4, width: "30%", borderWidth: 1 ,alignItems:'center'}}>
 					<Text>Comments:{comments_count} </Text>
 				</View>
 			</View>
@@ -27,7 +27,11 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 				</View>
 
 				<View style={styles.btn}>
-					<TouchableHighlight style={styles.quantityButton} style={styles.newButtonStyle2} >
+					<TouchableHighlight 
+					style={styles.newButtonStyle2} 
+					onPress={()=>{
+						setShow(true)
+					}} >
 						<View style={styles.buttonStyle} >
 							<Text style={{ marginRight: 2, fontWeight: 'bold', color: 'white', }}> Comment  💬 </Text>
 						</View>
@@ -44,7 +48,7 @@ const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
 							</View>
 						      )
 						})}
-				</View>
+			</View>
 			
 
            {/* 			
@@ -74,14 +78,11 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		flexDirection: 'row',
-		marginTop: 8,
-		borderWidth: 1,
-		borderRadius: 10,
-		paddingLeft: 10,
+		marginTop: 4,
+		marginBottom: 10,
 	},
 	container2: {
-		marginBottom: 10,
-		
+		paddingBottom: 10,
 		borderWidth: 1,
 		borderRadius: 10,
 		paddingRight: 10,
