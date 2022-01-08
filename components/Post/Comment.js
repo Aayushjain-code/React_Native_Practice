@@ -19,7 +19,10 @@ function Comment({ comment }) {
                  {comment.comment}
             </Text>
         </View>
-
+        <View style={styles.reactions}>
+            <Text style={styles.react}>Like</Text>
+            <Text style={styles.react}>Reply</Text>
+        </View>
         {nestedComments}
       </View>
     )
@@ -30,19 +33,32 @@ export default Comment
 
 
 const styles = StyleSheet.create({
+    react:{
+        fontSize:10,
+        paddingRight:5,
+        backgroundColor:'#D3D3D3',
+        padding:2,
+        borderRadius:5,
+        marginRight:5,
+        marginTop:5,
+    },
+    reactions: {
+        flexDirection: 'row',
+        justifyContent:'flex-end',
+        marginRight: 10,
+    },
     oneBox:{
         flexDirection:'row',
-        marginTop:10,
-        backgroundColor:'#808080',
-        padding:10,
+        backgroundColor:'#D3D3D3',
+        padding:5,
         borderRadius:5,
     },
     commenter:{
         fontWeight:'bold',
     },
     box1:{
-        marginLeft:30,
-        marginTop:10,
+        marginLeft:20,
+        marginTop:5,
     },
     containerTxt: {
         fontWeight: 'bold',
