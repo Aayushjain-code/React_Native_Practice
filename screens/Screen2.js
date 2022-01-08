@@ -1,22 +1,42 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { Switch } from 'react-native-elements'
 
-const Screen2 = () => {
-	return (
-		<View>
-			<Text style={styles.myText}>
-				⚙️
-			</Text>
-		</View>
-	)
+import styled from 'styled-components/native';
+import ThemeManager, { useTheme } from '../components/Modes/ThemeManager';
+
+const Container = styled.View`
+  flex: 1;
+  background:${props => props.theme.backgroundAlt};
+  align-items: center;
+  justify-content: center;`
+ 
+const Title = styled.Text`
+  "fontSize: 24px";
+  color: ${props => props.theme.text};
+`
+
+function HomeScreen() {
+    const theme = useTheme()
+    return (
+      <Container>
+        <Title>{theme.mode}</Title>
+        <Switch
+          value={theme.mode === 'dark'}
+          onValueChange={value => theme.setMode(value ? 'dark' : 'light')}
+        />
+      </Container>
+    )
+  }
+class App extends React.Component{
+  
+render(){
+  return (
+   <ThemeManager>
+      <HomeScreen />
+    </ThemeManager>
+  );
 }
-
-export default Screen2
-
-const styles = StyleSheet.create({
-	myText: {
-		fontSize: 30,
-		color: 'tomato',
-		textAlign: 'center'
-	}
-})
+};
+ 
+export default App;
