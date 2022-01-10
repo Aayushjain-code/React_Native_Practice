@@ -9,7 +9,7 @@ import SmallButton from '../components/Button/Small'
 
 const Screen2 = () => {
 	return (
-		<View>
+		<View style={styles.mainContainer}>
 			<Text style={styles.txt}>Components:Button</Text>
 				<LargeButton/>
 				<MediumButton/>
@@ -24,6 +24,12 @@ const Screen2 = () => {
 export default Screen2
 
 const styles = StyleSheet.create({
+	mainContainer: {
+		margin: 10,
+		borderWidth: 1,
+		borderColor: 'black',
+		borderRadius: 10,
+	},
 	txt: {
 		padding: 10,
 		fontSize: 30,

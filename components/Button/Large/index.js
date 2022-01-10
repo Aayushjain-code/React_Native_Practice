@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { TouchableHighlight } from 'react-native-gesture-handler'
+import { TouchableHighlight } from 'react-native'
+import Modal from '../Modal';
 
 const LargeButton = () => {
+	const [shouldShow, setShouldShow] = useState(false);
     return (
-    <View style={styles.btn}>
+    <>
+        <View style={styles.btn}>
                 <TouchableHighlight 
                 style={styles.newButtonStyle2} 
+                onPress={() => setShouldShow(!shouldShow)}
                 >
                     <View style={styles.buttonStyle} >
                         <Text style={styles.txt}> Large </Text>
                     </View>
                 </TouchableHighlight>
-    </View>
+        </View>
+       {
+				shouldShow ?( <Modal />) : null
+		}
+    </>
+
     )
 }
 

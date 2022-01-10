@@ -1,9 +1,9 @@
 import React ,{useState}from 'react'
 import { Button, ScrollView, StyleSheet, Text, View ,TouchableHighlight,TouchableOpacity} from "react-native";
-import { Provider } from "react-native-paper";
-// import Comment from '../comments';
-import BottomSheet from "./bottom-sheet/BottomSheet";
-import Comment from './Comment';
+// import { Provider } from "react-native-paper";
+// // import Comment from '../comments';
+// import BottomSheet from "./bottom-sheet/BottomSheet";
+// import Comment from './Comment';
 import CommentBox from './CommentBox';
 
 const Footer = ({ likes_count, comments_count, comments ,user_name}) => {
