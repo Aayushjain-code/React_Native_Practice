@@ -1,12 +1,22 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import ButtonWithIcon from '../components/Button/ButtonWithIcon'
+import ButtonWithIconBordered from '../components/Button/ButtonWithIconBordered'
+import LargeButton from '../components/Button/Large'
+import MediumButton from '../components/Button/Medium'
+import MediumBordered from '../components/Button/MediumBordered'
+import SmallButton from '../components/Button/Small'
 
 const Screen2 = () => {
 	return (
 		<View>
-			<Text style={styles.myText}>
-				⚙️
-			</Text>
+			<Text style={styles.txt}>Components:Button</Text>
+				<LargeButton/>
+				<MediumButton/>
+				<SmallButton/>
+				<MediumBordered/>
+				<ButtonWithIcon/>
+				<ButtonWithIconBordered/>
 		</View>
 	)
 }
@@ -14,9 +24,10 @@ const Screen2 = () => {
 export default Screen2
 
 const styles = StyleSheet.create({
-	myText: {
+	txt: {
+		padding: 10,
 		fontSize: 30,
-		color: 'tomato',
+		color: '#E40046',
 		textAlign: 'center'
 	}
 })
