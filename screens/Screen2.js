@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import ButtonWithIcon from '../components/Button/ButtonWithIcon'
 import ButtonWithIconBordered from '../components/Button/ButtonWithIconBordered'
+import FloatingActionButton from '../components/Button/FloatingActionButton'
 import LargeButton from '../components/Button/Large'
 import MediumButton from '../components/Button/Medium'
 import MediumBordered from '../components/Button/MediumBordered'
@@ -17,6 +18,7 @@ const Screen2 = () => {
 				<MediumBordered/>
 				<ButtonWithIcon/>
 				<ButtonWithIconBordered/>
+				<FloatingActionButton/>
 		</View>
 	)
 }
